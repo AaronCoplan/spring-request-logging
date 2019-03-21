@@ -20,7 +20,7 @@ public class Application implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new RequestLogger());
+        //registry.addInterceptor(new RequestLogger());
     }
 
     @GetMapping("/")
