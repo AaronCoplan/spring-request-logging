@@ -33,4 +33,15 @@ public class RequestData {
     public String getRequestMethod() {
         return requestMethod;
     }
+
+    @Override
+    public String toString() {
+        return "RequestData{" +
+                "httpResponseCode=" + httpResponseCode +
+                ", executionTimeMS=" + executionTimeMS +
+                ", requestPattern='" + requestPattern + '\'' +
+                ", requestURL='" + requestURL + '\'' +
+                ", requestMethod='" + requestMethod + '\'' +
+                '}';
+    }
 }
