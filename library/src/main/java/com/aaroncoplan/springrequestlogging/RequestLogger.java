@@ -20,9 +20,14 @@ public class RequestLogger extends HandlerInterceptorAdapter {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         final long completionTime = System.currentTimeMillis();
         final long startTime = (long)request.getAttribute(TIMING_ATTRIBUTE);
-        final String requestURL = request.getRequestURI();
-        System.out.println(completionTime-startTime);
-        System.out.println(requestURL);
+        final RequestData requestData = new RequestData(
+                response.getStatus(),
+                completionTime - startTime,
+                null,
+                request.getRequestURI(),
+                request.getMethod()
+        );
+        System.out.println(requestData);
         super.afterCompletion(request, response, handler, ex);
     }
 }
