@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 @SpringBootApplication
 @RestController
 public class Application implements WebMvcConfigurer {
@@ -24,5 +27,15 @@ public class Application implements WebMvcConfigurer {
     @GetMapping("/")
     public String greeting() {
         return "Hello World";
+    }
+
+    @GetMapping("/compute")
+    public double doSomeComputations() {
+        ArrayList<Double> doubleArrayList = new ArrayList<>();
+        for(int i = 0; i < 1000000; ++i) {
+            doubleArrayList.add(Math.random());
+        }
+        Collections.sort(doubleArrayList);
+        return doubleArrayList.get(0);
     }
 }
