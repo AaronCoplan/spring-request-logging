@@ -38,4 +38,9 @@ public class Application implements WebMvcConfigurer {
         Collections.sort(doubleArrayList);
         return doubleArrayList.get(0);
     }
+
+    @GetMapping("/error")
+    public double throwAnError() {
+        throw new RuntimeException("Something went wrong!");
+    }
 }
