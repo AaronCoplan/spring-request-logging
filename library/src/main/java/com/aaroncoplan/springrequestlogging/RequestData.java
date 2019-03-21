@@ -37,11 +37,11 @@ public class RequestData {
     @Override
     public String toString() {
         return "RequestData{" +
-                "httpResponseCode=" + httpResponseCode +
-                ", executionTimeMS=" + executionTimeMS +
-                ", requestPattern='" + requestPattern + '\'' +
+                "requestMethod='" + requestMethod + '\'' +
                 ", requestURL='" + requestURL + '\'' +
-                ", requestMethod='" + requestMethod + '\'' +
+                ", requestPattern='" + requestPattern + '\'' +
+                ", httpResponseCode=" + httpResponseCode +
+                ", executionTimeMS=" + executionTimeMS +
                 '}';
     }
 }
