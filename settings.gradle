@@ -1,0 +1,4 @@
+rootProject.name = 'spring-request-logging'
+
+include 'library'
+include 'sample-application'
