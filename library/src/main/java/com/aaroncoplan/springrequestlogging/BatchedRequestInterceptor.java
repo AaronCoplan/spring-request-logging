@@ -36,8 +36,6 @@ public class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
 
         List<RequestData> batchToProcess = null;
         synchronized (lock) {
-            System.out.println(Thread.currentThread().getId() + " Entering CS");
-
             batchData[index] = requestData;
             ++index;
             if(index == batchedRequestLogger.getBatchSize()) {
@@ -46,9 +44,8 @@ public class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
                 // we absolutely don't want to process the batch in the CS
                 batchToProcess = Arrays.asList(batchData);
                 batchData = new RequestData[batchedRequestLogger.getBatchSize()];
+                index = 0;
             }
-
-            System.out.println(Thread.currentThread().getId() + " Exiting CS");
         }
 
         // check if there is a batch to process
@@ -56,7 +53,6 @@ public class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
         if(batchToProcess != null) {
             batchedRequestLogger.processRequestBatch(batchToProcess);
         }
-
         super.afterCompletion(request, response, handler, ex);
     }
 }
