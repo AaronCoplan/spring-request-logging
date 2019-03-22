@@ -7,7 +7,7 @@ public class RequestData {
     private final String requestPattern, requestURL, requestMethod;
     private final boolean hasException;
 
-    public RequestData(int httpResponseCode, long executionTimeMS, String requestPattern, String requestURL, String requestMethod, boolean hasException) {
+    RequestData(int httpResponseCode, long executionTimeMS, String requestPattern, String requestURL, String requestMethod, boolean hasException) {
         this.httpResponseCode = httpResponseCode;
         this.executionTimeMS = executionTimeMS;
         this.requestPattern = requestPattern;

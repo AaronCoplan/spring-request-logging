@@ -10,14 +10,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
+class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
 
     private final BatchedRequestLogger batchedRequestLogger;
     private final Object lock;
     private RequestData[] batchData;
     private int index;
 
-    public BatchedRequestInterceptor(BatchedRequestLogger batchedRequestLogger) {
+    BatchedRequestInterceptor(BatchedRequestLogger batchedRequestLogger) {
         this.batchedRequestLogger = batchedRequestLogger;
         this.batchData = new RequestData[batchedRequestLogger.getBatchSize()];
         this.lock = new Object();

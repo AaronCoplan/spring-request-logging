@@ -5,11 +5,11 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class SingleRequestInterceptor extends HandlerInterceptorAdapter {
+class SingleRequestInterceptor extends HandlerInterceptorAdapter {
 
     private final SingleRequestLogger singleRequestLogger;
 
-    public SingleRequestInterceptor(SingleRequestLogger singleRequestLogger) {
+    SingleRequestInterceptor(SingleRequestLogger singleRequestLogger) {
         this.singleRequestLogger = singleRequestLogger;
     }
 
