@@ -32,7 +32,7 @@ public class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        RequestData requestData = RequestUtils.extractRequestData(request, response);
+        RequestData requestData = RequestUtils.extractRequestData(request, response, handler, batchedRequestLogger);
 
         List<RequestData> batchToProcess = null;
         synchronized (lock) {

@@ -2,7 +2,7 @@ package com.aaroncoplan.springrequestlogging;
 
 import java.util.List;
 
-public interface BatchedRequestLogger {
+public interface BatchedRequestLogger extends RequestLogger {
 
     int getBatchSize();
     void processRequestBatch(List<RequestData> batch);

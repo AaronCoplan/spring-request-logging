@@ -11,13 +11,13 @@ public class RequestUtils {
         request.setAttribute(TIMING_ATTRIBUTE, System.currentTimeMillis());
     }
 
-    public static RequestData extractRequestData(HttpServletRequest request, HttpServletResponse response) {
+    public static RequestData extractRequestData(HttpServletRequest request, HttpServletResponse response, Object handler, RequestLogger requestLogger) {
         final long completionTime = System.currentTimeMillis();
         final long startTime = (long)request.getAttribute(TIMING_ATTRIBUTE);
         return new RequestData(
                 response.getStatus(),
                 completionTime - startTime,
-                null,
+                requestLogger.extractRequestPattern(handler),
                 request.getRequestURI(),
                 request.getMethod()
         );
