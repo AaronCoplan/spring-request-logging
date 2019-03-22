@@ -7,6 +7,6 @@ public class RequestLoggerFactory {
     }
 
     public static BatchedRequestInterceptor buildBatchedRequestLogger(BatchedRequestLogger batchedRequestLogger) {
-        return new BatchedRequestInterceptor();
+        return new BatchedRequestInterceptor(batchedRequestLogger);
     }
 }
