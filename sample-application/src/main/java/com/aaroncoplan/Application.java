@@ -1,5 +1,6 @@
 package com.aaroncoplan;
 
+import com.aaroncoplan.springrequestlogging.BatchedRequestLogger;
 import com.aaroncoplan.springrequestlogging.RequestData;
 import com.aaroncoplan.springrequestlogging.RequestLoggerFactory;
 import com.aaroncoplan.springrequestlogging.SingleRequestLogger;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @SpringBootApplication
 @RestController
@@ -26,11 +28,28 @@ public class Application implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // demonstrating a simple SingleRequestLogger
-        registry.addInterceptor(RequestLoggerFactory.buildSingleRequestLogger(new SingleRequestLogger() {
-            Logger l = LoggerFactory.getLogger("SRL");
+        /*registry.addInterceptor(RequestLoggerFactory.buildSingleRequestLogger(new SingleRequestLogger() {
+            Logger l = LoggerFactory.getLogger("SingleRequestLogger");
             @Override
             public void processSingleRequest(RequestData requestData) {
                 l.info(requestData.toString());
+            }
+        }));*/
+
+        // demonstrating a simple BatchedRequestLogger
+        registry.addInterceptor(RequestLoggerFactory.buildBatchedRequestLogger(new BatchedRequestLogger() {
+            Logger l = LoggerFactory.getLogger("BatchedRequestLogger");
+            @Override
+            public int getBatchSize() {
+                return 10;
+            }
+
+            @Override
+            public void processRequestBatch(List<RequestData> batch) {
+                l.info("Batch Size: " + batch.size());
+                for (RequestData requestData : batch) {
+                    l.info(requestData.toString());
+                }
             }
         }));
     }
