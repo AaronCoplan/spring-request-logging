@@ -1,5 +1,10 @@
 package com.aaroncoplan;
 
+import com.aaroncoplan.springrequestlogging.RequestData;
+import com.aaroncoplan.springrequestlogging.RequestLoggerFactory;
+import com.aaroncoplan.springrequestlogging.SingleRequestLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +25,14 @@ public class Application implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        //registry.addInterceptor(new RequestLogger());
+        // demonstrating a simple SingleRequestLogger
+        registry.addInterceptor(RequestLoggerFactory.buildSingleRequestLogger(new SingleRequestLogger() {
+            Logger l = LoggerFactory.getLogger("SRL");
+            @Override
+            public void processSingleRequest(RequestData requestData) {
+                l.info(requestData.toString());
+            }
+        }));
     }
 
     @GetMapping("/")
