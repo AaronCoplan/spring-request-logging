@@ -3,7 +3,6 @@ package com.aaroncoplan;
 import com.aaroncoplan.springrequestlogging.BatchedRequestLogger;
 import com.aaroncoplan.springrequestlogging.RequestData;
 import com.aaroncoplan.springrequestlogging.RequestLoggerFactory;
-import com.aaroncoplan.springrequestlogging.SingleRequestLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;

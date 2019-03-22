@@ -1,13 +1,10 @@
 package com.aaroncoplan.springrequestlogging;
 
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 class BatchedRequestInterceptor extends HandlerInterceptorAdapter {
