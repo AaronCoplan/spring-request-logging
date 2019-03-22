@@ -5,13 +5,15 @@ public class RequestData {
     private final int httpResponseCode;
     private final long executionTimeMS;
     private final String requestPattern, requestURL, requestMethod;
+    private final boolean hasException;
 
-    public RequestData(int httpResponseCode, long executionTimeMS, String requestPattern, String requestURL, String requestMethod) {
+    public RequestData(int httpResponseCode, long executionTimeMS, String requestPattern, String requestURL, String requestMethod, boolean hasException) {
         this.httpResponseCode = httpResponseCode;
         this.executionTimeMS = executionTimeMS;
         this.requestPattern = requestPattern;
         this.requestURL = requestURL;
         this.requestMethod = requestMethod;
+        this.hasException = hasException;
     }
 
     public int getHttpResponseCode() {
@@ -34,6 +36,10 @@ public class RequestData {
         return requestMethod;
     }
 
+    public boolean getHasException() {
+        return hasException;
+    }
+
     @Override
     public String toString() {
         return "RequestData{" +
@@ -42,6 +48,7 @@ public class RequestData {
                 ", requestPattern='" + requestPattern + '\'' +
                 ", httpResponseCode=" + httpResponseCode +
                 ", executionTimeMS=" + executionTimeMS +
+                ", hasException=" + hasException +
                 '}';
     }
 }

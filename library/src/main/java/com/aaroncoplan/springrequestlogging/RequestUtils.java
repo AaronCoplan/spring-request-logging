@@ -11,7 +11,7 @@ public class RequestUtils {
         request.setAttribute(TIMING_ATTRIBUTE, System.currentTimeMillis());
     }
 
-    public static RequestData extractRequestData(HttpServletRequest request, HttpServletResponse response, Object handler, RequestLogger requestLogger) {
+    public static RequestData extractRequestData(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex, RequestLogger requestLogger) {
         final long completionTime = System.currentTimeMillis();
         final long startTime = (long)request.getAttribute(TIMING_ATTRIBUTE);
         return new RequestData(
@@ -19,7 +19,8 @@ public class RequestUtils {
                 completionTime - startTime,
                 requestLogger.extractRequestPattern(handler),
                 request.getRequestURI(),
-                request.getMethod()
+                request.getMethod(),
+                ex != null
         );
     }
 }

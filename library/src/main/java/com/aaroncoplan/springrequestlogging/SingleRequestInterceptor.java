@@ -21,7 +21,7 @@ public class SingleRequestInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        RequestData requestData = RequestUtils.extractRequestData(request, response, handler, singleRequestLogger);
+        RequestData requestData = RequestUtils.extractRequestData(request, response, handler, ex, singleRequestLogger);
         singleRequestLogger.processSingleRequest(requestData);
         super.afterCompletion(request, response, handler, ex);
     }
