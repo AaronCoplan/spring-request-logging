@@ -27,30 +27,10 @@ public class Application implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // demonstrating a simple SingleRequestLogger
-        /*registry.addInterceptor(RequestLoggerFactory.buildSingleRequestLogger(new SingleRequestLogger() {
-            Logger l = LoggerFactory.getLogger("SingleRequestLogger");
-            @Override
-            public void processSingleRequest(RequestData requestData) {
-                l.info(requestData.toString());
-            }
-        }));*/
+        registry.addInterceptor(RequestLoggerFactory.buildSingleRequestLogger(new BenchmarkSingleRequestLogger()));
 
         // demonstrating a simple BatchedRequestLogger
-        registry.addInterceptor(RequestLoggerFactory.buildBatchedRequestLogger(new BatchedRequestLogger() {
-            Logger l = LoggerFactory.getLogger("BatchedRequestLogger");
-            @Override
-            public int getBatchSize() {
-                return 10;
-            }
-
-            @Override
-            public void processRequestBatch(List<RequestData> batch) {
-                l.info("Batch Size: " + batch.size());
-                for (RequestData requestData : batch) {
-                    l.info(requestData.toString());
-                }
-            }
-        }));
+        registry.addInterceptor(RequestLoggerFactory.buildBatchedRequestLogger(new BenchmarkBatchedRequestLogger()));
     }
 
     @GetMapping("/")
