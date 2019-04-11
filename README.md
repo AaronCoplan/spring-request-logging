@@ -1,5 +1,5 @@
 # spring-request-logging
-Configurable, multi-mode library for logging requests within the Spring Framework.
+Configurable, multi-mode library for logging request traffic in applications using the Spring Framework.
 
 ### Performance Benchmarks
 
