@@ -3,7 +3,7 @@ Configurable, multi-mode library for logging request traffic in applications usi
 
 ## Single Mode
 
-A request logger that runs in single mode will execute once for each request, after the response has been flushed to the client.  To create a SingleRequestLogger, implement the [SingleRequestLogger](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/SingleRequestLogger.java) interface and then [add it to your interceptor registry](https://github.com/AaronCoplan/spring-request-logging/blob/master/sample-application/src/main/java/com/aaroncoplan/Application.java#L28).  This requires you to implement the following function:
+A request logger that runs in **single mode** will execute once for each request, after the response has been flushed to the client.  To create a `SingleRequestLogger`, implement the [SingleRequestLogger](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/SingleRequestLogger.java) interface and then [add it to your interceptor registry](https://github.com/AaronCoplan/spring-request-logging/blob/master/sample-application/src/main/java/com/aaroncoplan/Application.java#L28).  This requires you to implement the following function:
 
 ```java
 void processSingleRequest(RequestData requestData)
@@ -14,9 +14,23 @@ Optionally, you may override the following function to extract the request patte
 ```java
 String extractRequestPattern(Object handler)
 ```
-For more information about what data is contained within a RequestData object, see [its implementation](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/RequestData.java).
+For more information about what data is contained within a `RequestData` object, see [its implementation](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/RequestData.java).
 
 ## Batched Mode
+
+A request logger that runs in **batched mode** will add `RequestData` objects to a batch until it reaches the defined **batch size**, at which point it will execute the handler function for the entire batch, after the response has been flushed to the client.  To create a `BatchedRequestLogger`, implement the [BatchedRequestLogger](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/BatchedRequestLogger.java) interface and then [add it to your interceptor registry](https://github.com/AaronCoplan/spring-request-logging/blob/master/sample-application/src/main/java/com/aaroncoplan/Application.java#L28).  This requires you to implement the following functions:
+
+```java
+int getBatchSize()
+void processRequestBatch(List<RequestData> batch)
+```
+Optionally, you may override the following function to extract the request pattern from the handler:
+
+```java
+String extractRequestPattern(Object handler)
+```
+
+For more information about what data is contained within a `RequestData` object, see [its implementation](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/RequestData.java).
 
 ## Performance Benchmarks
 
