@@ -14,7 +14,7 @@ Optionally, you may override the following function to extract the request patte
 ```java
 String extractRequestPattern(Object handler)
 ```
-For more information about what data is contained within a RequestData object, see the implementation [here](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/RequestData.java).
+For more information about what data is contained within a RequestData object, see [its implementation](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/RequestData.java).
 
 ## Batched Mode
 
