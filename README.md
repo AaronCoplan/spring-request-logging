@@ -54,14 +54,14 @@ For more information about what data is contained within a `RequestData` object,
 
 | Smaller Instance | 100k Requests, 1 Concurrent Request | 100k Requests, 50 Concurrent Requests | 250 Concurrent Requests |
 | ---------------- | -------------------- | ---------------------- | ----------------------- |
-| No Logger        | 0.632                | 0.469                  | 0.525                   |
+| Without spring-request-logging framework        | 0.632                | 0.469                  | 0.525                   |
 | Single Logger    | 0.620                | 0.479                  | 0.507                   |
-| Batch Logger 10  | 0.637                | 0.486                  | 0.514                   |
-| Batch Logger 250 | 0.644                | 0.475                  | 0.557                   |
+| Batch Logger with batch size of 10  | 0.637                | 0.486                  | 0.514                   |
+| Batch Logger with batch size of 250 | 0.644                | 0.475                  | 0.557                   |
 
 | Bigger Instance  | 1 Concurrent Request | 50 Concurrent Requests | 250 Concurrent Requests |
 | ---------------- | -------------------- | ---------------------- | ----------------------- |
-| No Logger        | 0.711                | 0.176                  | 0.165                   |
+| Without spring-request-logging framework        | 0.711                | 0.176                  | 0.165                   |
 | Single Logger    | 0.719                | 0.173                  | 0.156                   |
-| Batch Logger 10  | 0.736                | 0.169                  | 0.161                   |
-| Batch Logger 250 | 0.725                | 0.174                  | 0.164                   |
+| Batch Logger with batch size of 10  | 0.736                | 0.169                  | 0.161                   |
+| Batch Logger with batch size of 250 | 0.725                | 0.174                  | 0.164                   |
