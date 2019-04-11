@@ -52,7 +52,7 @@ For more information about what data is contained within a `RequestData` object,
 * Command for high concurrency --> ab -n 100000 -c 250 http://<ip>:<port>/
 * Results are in mean ms/request
 
-**1 vCPU, 3.75 GB RAM, results in mean ms/request**
+### 1 vCPU, 3.75 GB RAM, results in mean ms/request
 
 | Logger Type | 100k Requests, 1 Concurrent Request | 100k Requests, 50 Concurrent Requests | 100k Requests, 250 Concurrent Requests |
 | ---------------- | -------------------- | ---------------------- | ----------------------- |
@@ -61,7 +61,7 @@ For more information about what data is contained within a `RequestData` object,
 | Batch Logger with batch size of 10  | 0.637                | 0.486                  | 0.514                   |
 | Batch Logger with batch size of 250 | 0.644                | 0.475                  | 0.557                   |
 
-**4 vCPU, 15 GB RAM, results in mean ms/request**
+### 4 vCPU, 15 GB RAM, results in mean ms/request
 
 | Logger Type  | 100k Requests, 1 Concurrent Request |  100k Requests, 50 Concurrent Requests | 100k Requests, 250 Concurrent Requests |
 | ---------------- | -------------------- | ---------------------- | ----------------------- |
