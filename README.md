@@ -36,6 +36,8 @@ For more information about what data is contained within a `RequestData` object,
 
 ## Performance Benchmarks
 
+In the performance benchmarks that were run, the **spring-request-logging framework itself** introduces no significant measurable overhead to processing requests. However, writing a slow `SingleRequestLogger` will reduce your server's throughput, so if your processing of request metadata involves anything with significant computational cost or overhead, it is recommended to use a `BatchedRequestLogger`.  The results from the benchmarks can be found below, as well as the methodology used to conduct them.  You can see that in some instances, the applications using the benchmark loggers run faster than applications without using the **spring-request-logging** package.  In other instances, the benchmark loggers are slower on the scale of microseconds.  Thus, no conclusive, significant overhead is measured.
+
 ### Small Server Benchmark (1 vCPU, 3.75 GB RAM, results in mean ms/request)
 
 | Logger Type | 100k Requests, 1 Concurrent Request | 100k Requests, 50 Concurrent Requests | 100k Requests, 250 Concurrent Requests |
