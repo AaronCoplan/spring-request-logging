@@ -1,5 +1,5 @@
 # spring-request-logging
-Configurable, multi-mode library for logging request traffic in applications using the Spring Framework.
+Configurable, multi-mode library for logging request traffic in applications using the Spring Framework.  The **spring-request-logging** package automatically extracts metadata from every request and provides you with a simple interface to handle those results.  You may handle those requests using two modes: **single**, or **batched**.
 
 ### Performance Benchmarks
 
