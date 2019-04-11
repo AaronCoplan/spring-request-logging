@@ -5,7 +5,7 @@ Configurable, multi-mode library for logging request traffic in applications usi
 
 ## Batched Mode
 
-### Performance Benchmarks
+## Performance Benchmarks
 
 * Ran on Google Compute Engine in the us-central1-c region
 * 1 client benchmark server using Apache Benchmark, n1-standard-4 (4 vCPUs, 15 GB memory), Ubuntu 16.04 LTS
