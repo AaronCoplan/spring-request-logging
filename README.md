@@ -52,14 +52,14 @@ For more information about what data is contained within a `RequestData` object,
 * Command for high concurrency --> ab -n 100000 -c 250 http://<ip>:<port>/
 * Results are in mean ms/request
 
-| Smaller Instance | 100k Requests, 1 Concurrent Request | 100k Requests, 50 Concurrent Requests | 250 Concurrent Requests |
+| Smaller Instance | 100k Requests, 1 Concurrent Request | 100k Requests, 50 Concurrent Requests | 100k Requests, 250 Concurrent Requests |
 | ---------------- | -------------------- | ---------------------- | ----------------------- |
 | No Logger        | 0.632                | 0.469                  | 0.525                   |
 | Single Logger    | 0.620                | 0.479                  | 0.507                   |
 | Batch Logger 10  | 0.637                | 0.486                  | 0.514                   |
 | Batch Logger 250 | 0.644                | 0.475                  | 0.557                   |
 
-| Bigger Instance  | 1 Concurrent Request | 50 Concurrent Requests | 250 Concurrent Requests |
+| Bigger Instance  | 100k Requests, 1 Concurrent Request |  100k Requests, 50 Concurrent Requests | 100k Requests, 250 Concurrent Requests |
 | ---------------- | -------------------- | ---------------------- | ----------------------- |
 | No Logger        | 0.711                | 0.176                  | 0.165                   |
 | Single Logger    | 0.719                | 0.173                  | 0.156                   |
