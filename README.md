@@ -3,6 +3,8 @@ Configurable, multi-mode library for logging request traffic in applications usi
 
 ## Single Mode
 
+To implement a request logger that runs once for each request, implement the [SingleRequestLogger](https://github.com/AaronCoplan/spring-request-logging/blob/master/library/src/main/java/com/aaroncoplan/springrequestlogging/SingleRequestLogger.java) interface.  This require
+
 ## Batched Mode
 
 ## Performance Benchmarks
